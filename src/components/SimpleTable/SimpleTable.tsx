@@ -20,12 +20,13 @@ import products from "../../assets/products.json";
 import Button from "../Button";
 import Link from "next/link";
 import Dropdown from "../Dropdown";
+
 import LinkCell from "./components/LinkCell";
 import NullCell from "./components/NullCell";
-import NumberCell from "./NumberCell";
-import BooleanCell from "./BooleanCell";
-import StringCell from "./StringCell";
-import ArrayCell from "./ArrayCell";
+import NumberCell from "./components/NumberCell";
+import BooleanCell from "./components/BooleanCell";
+import StringCell from "./components/StringCell";
+import ArrayCell from "./components/ArrayCell";
 
 const capitalizeWords = (text: string): string => {
   return text
@@ -68,28 +69,6 @@ const SimpleTable = ({ data }: Props) => {
         ),
         accessorKey: header,
         cell: (info: any) => {
-          const renderers: { [key: string]: (value?: any) => JSX.Element } = {
-            null: () => (
-              <span className="block italic text-neutral-500 w-full">null</span>
-            ),
-            link: (value: string) => (
-              <Link
-                className="text-blue-600 font-medium italic"
-                href={value}
-                target="_blank"
-              >
-                {value}
-              </Link>
-            ),
-            number: (value: number) => <div className="">{value}</div>,
-            boolean: (value: boolean) => (
-              <div className="flex justify-center items-center">
-                <input type="checkbox" checked={value} />
-              </div>
-            ),
-            default: (value: any) => <>{value}</>,
-          };
-
           const value = info.getValue();
 
           const isBoolean = typeof value === "boolean";
@@ -105,9 +84,6 @@ const SimpleTable = ({ data }: Props) => {
             default: <StringCell value={value} />,
           };
 
-          // return isNull ? renderOptions.null : renderOptions.default;
-
-          // !!!
           if (typeof value === "string" && isLink(value)) {
             return renderOptions.link;
           }
@@ -121,9 +97,9 @@ const SimpleTable = ({ data }: Props) => {
             return renderOptions.array;
           }
           if (isNull) {
-            return renderers.null();
+            return renderOptions.null;
           }
-          return renderers.default(value);
+          return renderOptions.default;
         },
       })),
     [headers]
