@@ -25,6 +25,7 @@ import NullCell from "./components/NullCell";
 import NumberCell from "./NumberCell";
 import BooleanCell from "./BooleanCell";
 import StringCell from "./StringCell";
+import ArrayCell from "./ArrayCell";
 
 const capitalizeWords = (text: string): string => {
   return text
@@ -93,12 +94,14 @@ const SimpleTable = ({ data }: Props) => {
 
           const isBoolean = typeof value === "boolean";
           const isNull = !value;
+          const isArray = Array.isArray(value);
 
           const renderOptions: { [key: string]: JSX.Element } = {
             null: <NullCell />,
             link: <LinkCell value={value} />,
             number: <NumberCell value={value} />,
             boolean: <BooleanCell value={value} />,
+            array: <ArrayCell value={value} />,
             default: <StringCell value={value} />,
           };
 
@@ -113,6 +116,9 @@ const SimpleTable = ({ data }: Props) => {
           }
           if (isBoolean) {
             return renderOptions.boolean;
+          }
+          if (isArray) {
+            return renderOptions.array;
           }
           if (isNull) {
             return renderers.null();
