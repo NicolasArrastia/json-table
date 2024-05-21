@@ -8,7 +8,6 @@ import ComplexTable from "@/components/ComplexTable/ComplexTable";
 
 export default function Home() {
   const [jsonFile, setJsonFile] = useState<any>(null);
-  console.log("render");
 
   const handleUploadJson = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];

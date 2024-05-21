@@ -102,10 +102,6 @@ const SimpleTable = ({ data }: Props) => {
             default: <StringCell value={value} />,
           };
 
-          if (info.column.id === "price") {
-            console.log({ type: typeof value, value });
-          }
-
           // return isNull ? renderOptions.null : renderOptions.default;
 
           // !!!
@@ -167,7 +163,6 @@ const SimpleTable = ({ data }: Props) => {
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
-                  console.log(header.column.getIsSorted());
                   return (
                     <th
                       onClick={header.column.getToggleSortingHandler()}

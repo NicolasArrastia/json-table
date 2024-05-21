@@ -18,7 +18,6 @@ const FileInputComponent = ({ onSelectFile, text, className }: Props) => {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files && files.length > 0) {
-      console.log(files[0].name);
       // Optionally, update some state to display the file name
       onSelectFile(files[0]);
     }
