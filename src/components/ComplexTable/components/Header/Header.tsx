@@ -22,7 +22,7 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
           </div>
         </div>
         <div className="flex gap-2">
-          {["filter1", "filter2", "filter3"].map((filter, index) => (
+          {/* {["filter1", "filter2", "filter3"].map((filter, index) => (
             <span
               key={index}
               className="p-1 pl-2 flex gap-2 items-center justify-between bg-neutral-300 rounded-md"
@@ -32,7 +32,7 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
                 x
               </div>
             </span>
-          ))}
+          ))} */}
         </div>
       </div>
 
