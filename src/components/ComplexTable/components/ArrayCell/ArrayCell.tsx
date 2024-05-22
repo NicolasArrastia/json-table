@@ -5,7 +5,6 @@ type Props = {
 };
 
 const ArrayCell = ({ value }: Props) => {
-  console.log(value);
   return (
     <div className="flex">
       {value.map((value, index) => (

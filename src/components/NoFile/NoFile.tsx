@@ -29,21 +29,23 @@ const NoFile = ({ onFileChange }: { onFileChange: (file: File) => void }) => {
   };
 
   return (
-    <div
-      onDragEnter={handleDragEnter}
-      onDragLeave={handleDragLeave}
-      onDragOver={handleDragOver}
-      onDrop={handleDrop}
-      className={`rounded-md bg-neutral-200 py-8 px-8 text-center italic ${
-        isHovered && "bg-orange-200"
-      }`}
-    >
-      No json files here. You can drop it here or add one by clicking{" "}
-      <FileInputComponent
-        onSelectFile={onFileChange}
-        text="here"
-        className="font-semibold"
-      />
+    <div className="h-1/2 flex items-center justify-center">
+      <div
+        onDragEnter={handleDragEnter}
+        onDragLeave={handleDragLeave}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+        className={`rounded-md bg-neutral-200 py-8 px-8 text-center italic ${
+          isHovered && "bg-orange-200"
+        }`}
+      >
+        No json files here. You can drop it here or add one by clicking{" "}
+        <FileInputComponent
+          onSelectFile={onFileChange}
+          text="here"
+          className="font-semibold"
+        />
+      </div>
     </div>
   );
 };
