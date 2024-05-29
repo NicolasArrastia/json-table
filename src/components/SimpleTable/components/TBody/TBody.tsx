@@ -15,7 +15,7 @@ const Body = ({ table }: Props) => {
               key={cell.id}
               className="py-1 px-4
             max-w-96
-            min-w-32
+            /min-w-32
             overflow-hidden
             text-nowrap whitespace-break-spaces text-ellipsis"
             >

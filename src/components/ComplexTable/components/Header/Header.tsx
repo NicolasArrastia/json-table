@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import Filters from "./Filters";
+import TableOptions from "./TableOptions";
 
 type Props = {
   searchValue: string;
   setSearchValue: any;
+  headers: any[];
 };
 
-const Header = ({ searchValue, setSearchValue }: Props) => {
+const Header = ({ searchValue, setSearchValue, headers }: Props) => {
   return (
     <header className="flex justify-between z-10">
       <div className="flex flex-col gap-2">
@@ -17,9 +20,7 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
           />
-          <div className="border border-neutral-400 p-1 size-9 flex justify-center items-center rounded-md">
-            ...
-          </div>
+          <Filters headers={headers} />
         </div>
         <div className="flex gap-2">
           {/* {["filter1", "filter2", "filter3"].map((filter, index) => (
@@ -36,9 +37,7 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
         </div>
       </div>
 
-      <div className="border border-neutral-400 rounded-md h-fit py-1 px-2">
-        Table Options
-      </div>
+      <TableOptions />
     </header>
   );
 };

@@ -104,7 +104,11 @@ const ComplexTable = <TData extends object>({ data }: Props<TData>) => {
 
   return (
     <div className="flex flex-col gap-2 h-full">
-      <Header searchValue={globalFilter} setSearchValue={setGlobalFilter} />
+      <Header
+        searchValue={globalFilter}
+        setSearchValue={setGlobalFilter}
+        headers={headers}
+      />
       <SimpleTable data={data} table={table} />
       <Footer total={data.length} />
     </div>
